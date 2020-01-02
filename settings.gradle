@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':basemodel', ':commonmodel', ':XmppLibrary', ':mainmodule', ':circleoffriendsmodule', ':activitymodule', ':chatmodule', ':contactsmodule', ':minemodule'
 rootProject.name='map_im'

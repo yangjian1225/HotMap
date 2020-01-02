@@ -1,6 +1,32 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+
+    ext{
+        takephoto_version = '4.0.3'
+        autosize_version = '1.1.2'
+        arouter_version = '1.5.0'
+        alertview_version = '1.0.3'
+        butterknife_version = '9.0.0'
+        design_version = '28.0.0'
+        glide_version = '4.9.0'
+        cardview_version = '28.0.0'
+        photoview_version='2.1.2'
+        recycleview_version = '28.0.0'
+        xrecycleview_version = '1.5.9'
+        okhttp_version = '3.12.3'
+        loginterceptor_version = '3.11.0'
+        gson_version = '2.8.5'
+        rxjava_version = '2.2.10'
+        rxandroid_version = '2.1.1'
+        retrofit_version = '2.6.0'
+        converter_gson_version = '2.6.0'
+        adapter_rxjava2_version = '2.6.0'
+        autodispose_version =  '1.0.0-RC3'
+        zxing_version = '2.2'
+        dagger_version = '2.23.2'
+    }
+
     repositories {
         google()
         jcenter()
@@ -18,6 +44,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url "https://jitpack.io" }
         
     }
 }

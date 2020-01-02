@@ -1,0 +1,104 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "29.0.2"
+
+
+    defaultConfig {
+        multiDexEnabled true
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    //图片选择
+    api "com.jph.takephoto:takephoto_library:$takephoto_version"
+    //屏幕适配
+    api "me.jessyan:autosize:$autosize_version"
+    //ARouter
+    api "com.alibaba:arouter-api:$arouter_version"
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+    //底部弹框
+    api "com.bigkoo:alertview:$alertview_version"
+    //黄油刀
+    api "com.jakewharton:butterknife:$butterknife_version"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$butterknife_version"
+    //design
+    api "com.android.support:design:$design_version"
+    //glide
+    api "com.github.bumptech.glide:glide:$glide_version"
+    //cardView
+    api "com.android.support:cardview-v7:$cardview_version"
+    //photoView
+    api "com.github.chrisbanes:PhotoView:$photoview_version"
+    //recyclerView
+    api "com.android.support:recyclerview-v7:$recycleview_version"
+    api('com.jcodecraeer:xrecyclerview:1.5.9') {
+        exclude group: 'com.android.support'
+    }
+    //rxpermission->6.0动态权限申请框架
+    api 'com.tbruyelle.rxpermissions2:rxpermissions:+'
+    //okhttp依赖
+    api "com.squareup.okhttp3:okhttp:$okhttp_version"
+    //okhttp日志拦截器
+    api "com.squareup.okhttp3:logging-interceptor:$loginterceptor_version"
+    //gson
+    api "com.google.code.gson:gson:$gson_version"
+    //rxjava
+    api "io.reactivex.rxjava2:rxjava:$rxjava_version"
+    //rxandroid
+    api "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+    //retrofit网络请求框架
+    api "com.squareup.retrofit2:retrofit:$retrofit_version"
+    //retrofit下gson插件->网络请求回数据自动使用gson解析
+    api "com.squareup.retrofit2:converter-gson:$converter_gson_version"
+    //retrofit下使用rxjava线程调度插件
+    api "com.squareup.retrofit2:adapter-rxjava2:$adapter_rxjava2_version"
+    //rx生命周期管理
+    api "com.uber.autodispose:autodispose-android-archcomponents:$autodispose_version"
+    api "com.uber.autodispose:autodispose-android:$autodispose_version"
+    //dagger2
+    api "com.google.dagger:dagger:$dagger_version"
+    annotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
+    //ZXing
+    api "cn.yipianfengye.android:zxing-library:$zxing_version"
+    //分割 Dex 文件
+    api 'com.android.support:multidex:1.0.3'
+
+    //高德
+    api 'com.amap.api:map2d:latest.integration'
+    api 'com.amap.api:search:latest.integration'
+    api 'com.amap.api:location:latest.integration'
+}
